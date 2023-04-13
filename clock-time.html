@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
+    <script src="js/webcg-framework.umd.js"></script>
+    <script type="text/javascript" src="js/clock-time.js"></script>
+    <style>
+      .overlay {
+        /* Initially hide the overlay */
+        opacity: 0;
+
+        position: absolute;
+        right: var(--margin);
+        /* right:0; */
+        bottom: var(--margin);
+        /* transform: translate(-50%,0%); */
+        /* opacity: 0; */
+        transition: opacity 0.5s;
+        width: 10vw;
+        /* padding-left: .25em; */
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="line l3rd-1 grad-1">LIVE</div>
+      <div class="line l3rd-2 grad-light clock"></div>
+    </div>
+  </body>
+</html>

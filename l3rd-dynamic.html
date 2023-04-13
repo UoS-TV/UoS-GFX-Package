@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>lower-third-css-animations.html</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
+    <script src="js/webcg-framework.umd.js"></script>
+    <style type="text/css">
+      .overlay {
+        /* Initially hide the overlay */
+        opacity: 0;
+
+        /* Position overlay with equal margin to the left and bottom */
+        position: absolute;
+        left: var(--margin);
+        bottom: var(--margin);
+
+        /* Set a max-width to prevent going over the right margin at 100% - 2 * margin, 1728px at 1080p */
+        max-width: calc(100vw - 2 * var(--margin));
+      }
+
+      .line:empty {
+        /* Hide empty line */
+        display: none;
+      }
+
+      .line-1 {
+        color: white;
+        font-weight: 700;
+        font-size: 4vh;
+        padding: 1vh 2vh;
+      }
+
+      .line-2 {
+        color: #222;
+        font-weight: 400;
+        font-size: 3vh;
+        padding: 1vh 2vh;
+      }
+
+      .intro {
+        /* Define how the slideIn keyframes are applied */
+        animation-duration: 0.3s;
+        animation-name: slideIn;
+        animation-fill-mode: both;
+        animation-timing-function: ease-in-out;
+      }
+
+      .outro {
+        /* Define how the slideOut keyframes are applied */
+        animation-duration: 0.3s;
+        animation-name: fadeOut;
+        animation-fill-mode: both;
+        animation-timing-function: ease-in;
+      }
+
+      @keyframes slideIn {
+        /* Fade in by increasing opacity to 1 and slide up by moving up at the same time */
+        from {
+          left: -10vmax;
+          opacity: 0;
+        }
+        to {
+          left: var(--margin);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        /* Fade out by reducing opacity to 0 */
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
+    <script type="text/javascript">
+      // Set initial data for webcg-devtools
+      window.debugData = {
+        f0: "Lower third with a subtitle",
+        f1: "and CSS animations",
+      };
+
+      webcg.on("data", function (data) {
+        document.querySelector(".line-1").innerHTML = data.f0
+          ? data.f0.text || data.f0
+          : "";
+        document.querySelector(".line-2").innerHTML = data.f1
+          ? data.f1.text || data.f1
+          : "";
+      });
+
+      webcg.on("play", function () {
+        const overlay = document.querySelector(".overlay");
+        // Swap intro and outro classes
+        overlay.classList.add("intro");
+        overlay.classList.remove("outro");
+        // Return promise that is resolved when the animation is over. WebCG will wait for this promise.
+        return new Promise((resolve) => {
+          // Add the animationend event listener once
+          overlay.addEventListener("animationend", resolve, { once: true });
+        });
+      });
+
+      webcg.on("stop", function () {
+        const overlay = document.querySelector(".overlay");
+        // Swap intro and outro classes
+        overlay.classList.remove("intro");
+        overlay.classList.add("outro");
+        // Return promise that is resolved when the animation is over. WebCG will wait for this promise.
+        return new Promise((resolve) => {
+          // Add the animationend event listener once
+          overlay.addEventListener("animationend", resolve, { once: true });
+        });
+      });
+
+      let invokeCount = 0;
+      webcg.on("test", function () {
+        invokeCount++;
+        document.querySelector(".line-1").innerHTML =
+          "invoked test " + invokeCount + " times";
+      });
+
+      webcg.on("test", function (arg1, arg2) {
+        document.querySelector(".line-2").innerHTML =
+          JSON.stringify(arg1) +
+          ", " +
+          JSON.stringify(arg2) +
+          ", " +
+          new Date().toLocaleString();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="line line-1 grad-1">Lower third with a subtitle</div>
+      <div class="line line-2 grad-light">and CSS animations</div>
+    </div>
+  </body>
+</html>

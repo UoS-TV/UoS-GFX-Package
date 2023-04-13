@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="js/webcg-framework.umd.js"></script>
+    <link rel="stylesheet" href="css/global.css" />
+    <script type="text/javascript" src="js/clock-time-big.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
+    <style>
+
+      .overlay {
+        position: absolute;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.5s;
+        width: auto;
+      }
+
+      .time {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        font-family: proxima-nova, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16vh;
+        padding: 0.2vh 5vw;
+        color: white;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .clock-line {
+        text-align: center;
+        font-family: proxima-nova, sans-serif;
+        padding: 0.5vh 2vh;
+        color: white;
+      }
+      
+      .line-1 {
+        font-weight: 800;
+        font-size: 4vh;
+        background: linear-gradient(-45deg, var(--pri-col), var(--sec-col), var(--pri-col));
+        background-size: 600% 600%;
+        animation: gradient 15s ease infinite;
+        border-radius: 1vw 1vw 0 0;
+      }
+      .line-2 {
+        font-weight: 400;
+        font-size: 3vh;
+        background: linear-gradient(45deg, var(--pri-col), var(--pri-col), var(--sec-col));
+        background-size: 600% 600%;
+        animation: gradient 15s ease infinite;
+        border-radius: 0 0 1vw 1vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="clock-line line-1">f3</div>
+      <div class="time"></div>
+      <div class="clock-line line-2">f4</div>
+    </div>
+  </body>
+</html>

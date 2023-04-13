@@ -1,0 +1,93 @@
+:root {
+  --margin: 6vw;
+
+  --pri-col: rgb(255, 217, 0);
+  --sec-col: rgb(30, 255, 0);
+}
+
+html {
+  /* Explicitly set background color */
+  background-color: transparent;
+
+  /* Disable scrollbars by clipping page overflow */
+  overflow: hidden;
+
+  /* Set default font family */
+  font-family: proxima-nova, sans-serif;
+
+  /* Set responsive root font size to 43.2px at 1080p */
+  font-size: 4vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.grad-1 {
+  background: linear-gradient(
+    45deg,
+    var(--pri-col),
+    var(--pri-col),
+    var(--sec-col),
+    var(--pri-col)
+  );
+  background-size: 600% 600%;
+  animation: gradient 2s ease infinite;
+}
+
+.grad-2 {
+  background: linear-gradient(
+    -45deg,
+    var(--pri-col),
+    var(--pri-col),
+    var(--sec-col),
+    var(--pri-col)
+  );
+  background-size: 600% 600%;
+  animation: gradient 15s ease infinite;
+}
+
+.grad-light {
+  background: linear-gradient(
+    45deg,
+    #eeeeeedd,
+    #eeeeeedd,
+    #ffffffdd,
+    #eeeeeedd
+  );
+  background-size: 600% 600%;
+  animation: gradient 15s ease infinite;
+}
+
+.line {
+  /* Prevent text wrapping and hide overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  /* width: fit-content; */
+  width: 1200px;
+  padding: 1vh 0;
+}
+
+.l3rd-1 {
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+  font-size: 4vh;
+}
+
+.l3rd-2 {
+  text-align: center;
+  width: 100%;
+  color: #222;
+  font-weight: 400;
+  font-size: 3vh;
+  font-variant-numeric: tabular-nums;
+}
