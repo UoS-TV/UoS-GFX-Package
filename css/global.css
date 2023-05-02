@@ -73,6 +73,7 @@ html {
   width: fit-content;
   /* width: 1200px; */
   padding: 1vh 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .l3rd-1 {
@@ -89,5 +90,5 @@ html {
   color: #222;
   font-weight: 400;
   font-size: 3vh;
-  font-variant-numeric: tabular-nums;
+  /* font-variant-numeric: tabular-nums; */
 }
