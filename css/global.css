@@ -1,8 +1,8 @@
 :root {
   --margin: 6vw;
 
-  --pri-col: rgb(255, 217, 0);
-  --sec-col: rgb(30, 255, 0);
+  --pri-col: rgb(87, 3, 243);
+  --sec-col: rgb(235, 21, 153);
 }
 
 html {
@@ -39,7 +39,7 @@ html {
     var(--pri-col)
   );
   background-size: 600% 600%;
-  animation: gradient 2s ease infinite;
+  animation: gradient 15s ease infinite;
 }
 
 .grad-2 {
@@ -70,8 +70,8 @@ html {
   /* Prevent text wrapping and hide overflow */
   white-space: nowrap;
   overflow: hidden;
-  /* width: fit-content; */
-  width: 1200px;
+  width: fit-content;
+  /* width: 1200px; */
   padding: 1vh 0;
 }
 
