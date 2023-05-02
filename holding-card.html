@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>lower-third-css-animations.html</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
+    <script src="js/webcg-framework.umd.js"></script>
+    <style type="text/css">
+    body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+    .overlay {
+        /* Initially hide the overlay */
+        opacity: 0;
+
+        /* Position overlay with equal margin to the left and bottom */
+        /* position: absolute;
+        left: var(--margin);
+        bottom: var(--margin); */
+        height: 100vh;
+
+        /* Set a max-width to prevent going over the right margin at 100% - 2 * margin, 1728px at 1080p */
+        /* max-width: calc(100vw - 2 * var(--margin)); */
+
+        --s: 20vh;
+  --p: calc(var(--s) / 2);
+  --c1: var(--pri-col);
+  --c2: var(--sec-col);
+  --c3: rgba(0, 0, 0, 0);
+  --bg: var(--c3);
+  --d: 8s;
+  --e: cubic-bezier(0.6, 0, 0.25, 1);
+  
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--c2) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
+  background-size: var(--s) var(--s);
+  background-position: 
+    calc(var(--p) *  1) calc(var(--p) *  0), 
+    calc(var(--p) * -1) calc(var(--p) *  1), 
+    calc(var(--p) *  1) calc(var(--p) * -1), 
+    calc(var(--p) * -1) calc(var(--p) *  0);
+  animation: 
+    /* color var(--d) var(--e) infinite, */
+    position var(--d) var(--e) infinite;
+}
+
+@keyframes color {
+  0%, 25% {
+    --bg: var(--c3);
+  }
+  26%, 50% {
+    --bg: var(--c1);
+  }
+  51%, 75% {
+    --bg: var(--c3);
+  }
+  76%, 100% {
+    --bg: var(--c2);
+  }
+}
+
+@keyframes position {
+  0% {
+    background-position: 
+      calc(var(--p) *  1) calc(var(--p) *  0), 
+      calc(var(--p) * -1) calc(var(--p) *  1), 
+      calc(var(--p) *  1) calc(var(--p) * -1), 
+      calc(var(--p) * -1) calc(var(--p) *  0);
+  }
+  25% {
+    background-position: 
+      calc(var(--p) *  1) calc(var(--p) *  4), 
+      calc(var(--p) * -1) calc(var(--p) *  5), 
+      calc(var(--p) *  1) calc(var(--p) *  3), 
+      calc(var(--p) * -1) calc(var(--p) *  4);
+  }
+  50% {
+    background-position: 
+      calc(var(--p) *  3) calc(var(--p) * 8), 
+      calc(var(--p) * -3) calc(var(--p) * 9), 
+      calc(var(--p) *  2) calc(var(--p) * 7), 
+      calc(var(--p) * -2) calc(var(--p) * 8);
+  }
+  75% {
+    background-position: 
+      calc(var(--p) *  3) calc(var(--p) * 12), 
+      calc(var(--p) * -3) calc(var(--p) * 13), 
+      calc(var(--p) *  2) calc(var(--p) * 11), 
+      calc(var(--p) * -2) calc(var(--p) * 12);
+  }
+  100% {    
+    background-position: 
+      calc(var(--p) *  5) calc(var(--p) * 16), 
+      calc(var(--p) * -5) calc(var(--p) * 17), 
+      calc(var(--p) *  5) calc(var(--p) * 15), 
+      calc(var(--p) * -5) calc(var(--p) * 16);
+  }
+      }
+
+      .line:empty {
+        /* Hide empty line */
+        display: none;
+      }
+
+      .line-1 {
+        color: white;
+        font-weight: 700;
+        font-size: 10vh;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+        /* padding: 1vh 2vh; */
+      }
+    </style>
+    <script type="text/javascript">
+
+      webcg.on("data", function (data) {
+        document.querySelector(".line-1").innerHTML = data.f0
+          ? data.f0.text || data.f0
+          : "GFX 1";
+      });
+
+      webcg.on('play', function () {
+      const overlay = document.querySelector('.overlay')
+      overlay.style.opacity = 1
+    })
+
+    webcg.on('stop', function () {
+      const overlay = document.querySelector('.overlay')
+      overlay.style.opacity = 0
+    })
+    </script>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="line-1"></div>
+    </div>
+  </body>
+</html>
