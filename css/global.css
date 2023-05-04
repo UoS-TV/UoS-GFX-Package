@@ -3,6 +3,9 @@
 
   --pri-col: rgb(87, 3, 243);
   --sec-col: rgb(235, 21, 153);
+
+  --teamACol: rgb(255, 0, 0);
+  --teamBCol: rgb(0, 0, 255);
 }
 
 html {
