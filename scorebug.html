@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="js/webcg-framework.umd.js"></script>
+    <link rel="stylesheet" href="css/global.css" />
+    <script type="text/javascript" src="js/score.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
+    <style>
+      .overlay {
+        position: absolute;
+        top: calc(var(--margin) / 2);
+        left: calc(var(--margin) / 2);
+        /* transform: translate(-50%, -50%); */
+        opacity: 0;
+        transition: opacity 0.5s;
+        width: auto;
+      }
+      .line {
+        /* Define padding relative to the font size */
+        padding: 0.2em 1em;
+        margin: 0;
+
+        /* background-color: rgba(var(--teamACol), 1); */
+        /* color: white; */
+        position: relative;
+        float: left;
+        /* left:50%; */
+        text-align: center;
+
+        /* Prevent text wrapping and hide overflow */
+        /* white-space: nowrap; */
+        /* overflow: hidden; */
+        /* font-variant: small-caps; */
+        font-size: 3vh;
+      }
+      .team-a,
+      .team-b {
+        min-width: 8vw;
+      }
+
+      .team-a {
+        background-color: var(--teamACol);
+        color: white;
+      }
+
+      .team-b {
+        background-color: var(--teamBCol);
+        color: white;
+      }
+
+      .score-a,
+      .score-b {
+        min-width: 4vw;
+      }
+
+      .score-a {
+        background-color: white;
+        color: black;
+      }
+
+      .score-b {
+        background-color: white;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="line team-a"></div>
+      <div class="line score-a">0</div>
+      <div class="line score-b">0</div>
+      <div class="line team-b"></div>
+    </div>
+  </body>
+</html>
