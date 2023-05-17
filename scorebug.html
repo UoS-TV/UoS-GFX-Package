@@ -26,13 +26,7 @@
         /* color: white; */
         position: relative;
         float: left;
-        /* left:50%; */
         text-align: center;
-
-        /* Prevent text wrapping and hide overflow */
-        /* white-space: nowrap; */
-        /* overflow: hidden; */
-        /* font-variant: small-caps; */
         font-size: 3vh;
       }
       .team-a,
@@ -40,38 +34,19 @@
         min-width: 8vw;
       }
 
-      .team-a {
-        background-color: var(--teamACol);
-        color: white;
-      }
-
-      .team-b {
-        background-color: var(--teamBCol);
-        color: white;
-      }
-
-      .score-a,
-      .score-b {
+      .score-a, .score-b {
         min-width: 4vw;
-      }
-
-      .score-a {
-        background-color: white;
-        color: black;
-      }
-
-      .score-b {
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.699);
         color: black;
       }
     </style>
   </head>
   <body>
     <div class="overlay">
-      <div class="line team-a"></div>
-      <div class="line score-a">0</div>
-      <div class="line score-b">0</div>
-      <div class="line team-b"></div>
+      <div class="line team-a grad-teamA"></div>
+      <div class="line score-a"></div>
+      <div class="line score-b"></div>
+      <div class="line team-b grad-teamB"></div>
     </div>
   </body>
 </html>

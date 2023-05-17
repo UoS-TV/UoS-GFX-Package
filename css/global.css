@@ -1,11 +1,12 @@
 :root {
   --margin: 6vw;
+ --pri-col-vals: 87, 3, 243;
+  --pri-col: rgb(var(--pri-col-vals));
+  --sec-col-vals: 235, 21, 153;
+  --sec-col: rgb(var(--sec-col-vals));
 
-  --pri-col: rgb(87, 3, 243);
-  --sec-col: rgb(235, 21, 153);
-
-  --teamACol: rgb(255, 0, 0);
-  --teamBCol: rgb(0, 0, 255);
+  --teamA-col-vals: 255, 0, 0;
+  --teamB-col-vals: 0, 0, 255;
 }
 
 html {
@@ -20,6 +21,8 @@ html {
 
   /* Set responsive root font size to 43.2px at 1080p */
   font-size: 4vh;
+
+  font-variant-numeric: tabular-nums;
 }
 
 @keyframes gradient {
@@ -36,10 +39,10 @@ html {
 .grad-1 {
   background: linear-gradient(
     45deg,
-    var(--pri-col),
-    var(--pri-col),
-    var(--sec-col),
-    var(--pri-col)
+    rgba(var(--pri-col-vals),0.75),
+    rgba(var(--pri-col-vals),0.75),
+    rgba(var(--sec-col-vals),1),
+    rgba(var(--pri-col-vals),0.75)
   );
   background-size: 600% 600%;
   animation: gradient 15s ease infinite;
@@ -48,10 +51,36 @@ html {
 .grad-2 {
   background: linear-gradient(
     -45deg,
-    var(--pri-col),
-    var(--pri-col),
-    var(--sec-col),
-    var(--pri-col)
+    rgba(var(--pri-col-vals),0.75),
+    rgba(var(--pri-col-vals),0.75),
+    rgba(var(--sec-col-vals),1),
+    rgba(var(--pri-col-vals),0.75)
+  );
+  background-size: 600% 600%;
+  animation: gradient 15s ease infinite;
+}
+
+.grad-teamA {
+  color: white;
+  background: linear-gradient(
+    -45deg,
+    rgba(var(--teamA-col-vals),0.5),
+    rgba(var(--teamA-col-vals),0.75),
+    rgba(var(--teamA-col-vals),1),
+    rgba(var(--teamA-col-vals),0.75)
+  );
+  background-size: 600% 600%;
+  animation: gradient 15s ease infinite;
+}
+
+.grad-teamB {
+  color: white;
+  background: linear-gradient(
+    45deg,
+    rgba(var(--teamB-col-vals),0.5),
+    rgba(var(--teamB-col-vals),0.75),
+    rgba(var(--teamB-col-vals),1),
+    rgba(var(--teamB-col-vals),0.75)
   );
   background-size: 600% 600%;
   animation: gradient 15s ease infinite;
@@ -74,24 +103,53 @@ html {
   white-space: nowrap;
   overflow: hidden;
   width: fit-content;
-  /* width: 1200px; */
-  padding: 1vh 0;
-  font-variant-numeric: tabular-nums;
+  padding: 1vh 2vh;
 }
 
 .l3rd-1 {
-  text-align: center;
-  width: 100%;
+  width: min-content;
   color: white;
   font-weight: 700;
   font-size: 4vh;
 }
 
 .l3rd-2 {
-  text-align: center;
-  width: 100%;
+  width: min-content;
   color: #222;
   font-weight: 400;
   font-size: 3vh;
-  /* font-variant-numeric: tabular-nums; */
+}
+
+/* .clock-line {
+  text-align: center;
+  font-family: proxima-nova, sans-serif;
+  padding: 0.5vh 2vh;
+  color: white;
+} */
+
+.line-upper {
+  text-align: center;
+  color: white;
+  font-weight: 800;
+  font-size: 4vh;
+  border-radius: 1vw 1vw 0 0;
+}
+
+.line-lower {
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  font-size: 3vh;
+  border-radius: 0 0 1vw 1vw;
+}
+
+.time {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: proxima-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16vh;
+  padding: 0.2vh 5vw;
+  color: white;
 }

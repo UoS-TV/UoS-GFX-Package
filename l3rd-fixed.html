@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
     <script src="js/webcg-framework.umd.js"></script>
     <style type="text/css">
+
+
       .overlay {
         /* Initially hide the overlay */
         opacity: 0;
@@ -17,7 +19,8 @@
         bottom: var(--margin);
 
         /* Set a max-width to prevent going over the right margin at 100% - 2 * margin, 1728px at 1080p */
-        max-width: calc(100vw - 2 * var(--margin));
+        max-width: calc(100vw - (2 * var(--margin)) - 10vw);
+        --nono: calc(80vw - (2 * var(--margin)));
       }
 
       .line:empty {
@@ -122,7 +125,7 @@
   </head>
   <body>
     <div class="overlay">
-      <div class="line l3rd-1 grad-1">Lower third with a subtitle</div>
+      <div class="line l3rd-1 grad-1" style="width: var(--nono);">Lower third with a subtitle</div>
       <div class="line l3rd-2 grad-light">and CSS animations</div>
     </div>
   </body>

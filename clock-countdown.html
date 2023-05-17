@@ -3,64 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
-    <script src="js/webcg-framework.umd.js"></script>
     <link rel="stylesheet" href="css/global.css" />
-    <script type="text/javascript" src="js/clock-countdown.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
+    <script src="js/webcg-framework.umd.js"></script>
+    <script type="text/javascript" src="js/countdown.js"></script>
     <style>
-
       .overlay {
-        position: absolute;
-        top: 88vh;
-        left: 85vw;
-        transform: translate(-50%, -50%);
+        /* Initially hide the overlay */
+        width: 10vw;
         opacity: 0;
+        transform: translate(-50%);
+        position: absolute;
+        right: var(--margin);
+        bottom: var(--margin);
+        
         transition: opacity 0.5s;
-        width: auto;
-      }
-
-      .countdown {
-        text-align: center;
-        background: rgba(0, 0, 0, 0.5);
-        font-family: proxima-nova, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 4vh;
-        padding: 0.2vh 5vw;
-        color: white;
-        font-variant-numeric: tabular-nums;
-      }
-
-      .clock-line {
-        text-align: center;
-        font-family: proxima-nova, sans-serif;
-        padding: 0.5vh 2vh;
-        color: white;
-      }
-      
-      .line-1 {
-        font-weight: 800;
-        font-size: 4vh;
-        background: linear-gradient(-45deg, var(--pri-col), var(--sec-col), var(--pri-col));
-        background-size: 600% 600%;
-        animation: gradient 15s ease infinite;
-        border-radius: 1vw 1vw 0 0;
-      }
-      .line-2 {
-        font-weight: 400;
-        font-size: 3vh;
-        background: linear-gradient(45deg, var(--pri-col), var(--pri-col), var(--sec-col));
-        background-size: 600% 600%;
-        animation: gradient 15s ease infinite;
-        border-radius: 0 0 1vw 1vw;
       }
     </style>
   </head>
   <body>
     <div class="overlay">
-      <div class="clock-line line-1">f3</div>
-      <div class="countdown"></div>
-      <div class="clock-line line-2">f4</div>
+      <div
+        class="line f0 l3rd-1 grad-1"
+        style="width: 100%; text-align: center"
+      ></div>
+      <div
+        class="line f1 l3rd-2 grad-light countdown"
+        style="width: 100%; text-align: center"
+      ></div>
     </div>
   </body>
 </html>
