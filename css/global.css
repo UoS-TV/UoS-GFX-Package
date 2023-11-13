@@ -1,12 +1,25 @@
 :root {
   --margin: 6vw;
- --pri-col-vals: 87, 3, 243;
-  --pri-col: rgb(var(--pri-col-vals));
-  --sec-col-vals: 235, 21, 153;
-  --sec-col: rgb(var(--sec-col-vals));
 
-  --teamA-col-vals: 255, 0, 0;
-  --teamB-col-vals: 0, 0, 255;
+  --battersea-blue: #25384A;
+  --stag-yellow: #f1b53d;
+  --purple: #901a9d;
+  --teal: #00a4b1;
+  --sports-park-green: #349353;
+  --red: #cb3340;
+  --orange: #d57903;
+  --research-park-blue: #365ac4;
+  --fawn: #c04d3a;
+  --flamingo: #ef6181;
+  --pink: #fc9bc1;
+  --plum: #872046;
+
+
+  --pri-col: var(--battersea-blue);
+  --sec-col: var(--teal);
+
+  --teamA-col: var(--red);
+  --teamB-col: var(--research-park-blue);
 }
 
 html {
@@ -37,24 +50,26 @@ html {
   }
 }
 .grad-1 {
+  color: white;
   background: linear-gradient(
     45deg,
-    rgba(var(--pri-col-vals),0.75),
-    rgba(var(--pri-col-vals),0.75),
-    rgba(var(--sec-col-vals),1),
-    rgba(var(--pri-col-vals),0.75)
+    color-mix(in srgb, var(--pri-col) 80%, transparent),
+    color-mix(in srgb, var(--pri-col) 80%, transparent),
+    color-mix(in srgb, var(--sec-col) 100%, transparent),
+    color-mix(in srgb, var(--pri-col) 80%, transparent)
   );
   background-size: 600% 600%;
   animation: gradient 15s ease infinite;
 }
 
 .grad-2 {
+  color: white;
   background: linear-gradient(
     -45deg,
-    rgba(var(--pri-col-vals),0.75),
-    rgba(var(--pri-col-vals),0.75),
-    rgba(var(--sec-col-vals),1),
-    rgba(var(--pri-col-vals),0.75)
+    color-mix(in srgb, var(--pri-col) 80%, transparent),
+    color-mix(in srgb, var(--pri-col) 80%, transparent),
+    color-mix(in srgb, var(--sec-col) 100%, transparent),
+    color-mix(in srgb, var(--pri-col) 80%, transparent)
   );
   background-size: 600% 600%;
   animation: gradient 15s ease infinite;
@@ -63,11 +78,11 @@ html {
 .grad-teamA {
   color: white;
   background: linear-gradient(
-    -45deg,
-    rgba(var(--teamA-col-vals),0.5),
-    rgba(var(--teamA-col-vals),0.75),
-    rgba(var(--teamA-col-vals),1),
-    rgba(var(--teamA-col-vals),0.75)
+    45deg,
+    color-mix(in srgb, var(--teamA-col) 60%, transparent),
+    color-mix(in srgb, var(--teamA-col) 80%, transparent),
+    color-mix(in srgb, var(--teamA-col) 100%, transparent),
+    color-mix(in srgb, var(--teamA-col) 80%, transparent)
   );
   background-size: 600% 600%;
   animation: gradient 15s ease infinite;
@@ -77,25 +92,26 @@ html {
   color: white;
   background: linear-gradient(
     45deg,
-    rgba(var(--teamB-col-vals),0.5),
-    rgba(var(--teamB-col-vals),0.75),
-    rgba(var(--teamB-col-vals),1),
-    rgba(var(--teamB-col-vals),0.75)
+    color-mix(in srgb, var(--teamB-col) 50%, transparent),
+    color-mix(in srgb, var(--teamB-col) 80%, transparent),
+    color-mix(in srgb, var(--teamB-col) 100%, transparent),
+    color-mix(in srgb, var(--teamB-col) 80%, transparent)
   );
   background-size: 600% 600%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
 }
 
 .grad-light {
+  color: #222;
   background: linear-gradient(
     45deg,
-    #eeeeeedd,
-    #eeeeeedd,
-    #ffffffdd,
-    #eeeeeedd
+    #eeeeeebb,
+    #eeeeeebb,
+    #ffffffbb,
+    #eeeeeebb
   );
   background-size: 600% 600%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
 }
 
 .line {
@@ -108,24 +124,17 @@ html {
 
 .l3rd-1 {
   width: min-content;
-  color: white;
   font-weight: 700;
   font-size: 4vh;
+  border-radius: 20px 20px 20px 0px;
 }
 
 .l3rd-2 {
   width: min-content;
-  color: #222;
   font-weight: 400;
   font-size: 3vh;
+  border-radius: 0px 20px 20px 20px;
 }
-
-/* .clock-line {
-  text-align: center;
-  font-family: proxima-nova, sans-serif;
-  padding: 0.5vh 2vh;
-  color: white;
-} */
 
 .line-upper {
   text-align: center;
@@ -143,12 +152,19 @@ html {
   border-radius: 0 0 1vw 1vw;
 }
 
+.time-sm {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 3vh;
+}
+
 .time {
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
-  font-family: proxima-nova, sans-serif;
+  /* font-family: proxima-nova, sans-serif; */
   font-weight: 400;
-  font-style: normal;
+  /* font-style: normal; */
   font-size: 16vh;
   padding: 0.2vh 5vw;
   color: white;
