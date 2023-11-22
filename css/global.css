@@ -1,7 +1,7 @@
 :root {
   --margin: 6vw;
 
-  --battersea-blue: #25384A;
+  /* --battersea-blue: #25384A;
   --stag-yellow: #f1b53d;
   --purple: #901a9d;
   --teal: #00a4b1;
@@ -12,8 +12,20 @@
   --fawn: #c04d3a;
   --flamingo: #ef6181;
   --pink: #fc9bc1;
-  --plum: #872046;
+  --plum: #872046; */
 
+  --battersea-blue: 38, 57, 75;
+  --stag-yellow: 241, 181, 59;
+  --purple: 145, 26, 158;
+  --teal: 0, 167, 179;
+  --sports-park-green: 51, 148, 83;
+  --red: 204, 51, 64;
+  --orange: 211, 121, 3;
+  --research-park-blue: 54, 89, 196;
+  --fawn: 192, 78, 57;
+  --flamingo: 239, 97, 130;
+  --pink: 252, 156, 194;
+  --plum: 136, 32, 70;
 
   --pri-col: var(--battersea-blue);
   --sec-col: var(--teal);
@@ -49,53 +61,75 @@ html {
     background-position: 0% 50%;
   }
 }
+
+@keyframes slideIn {
+  /* Fade in by increasing opacity to 1 and slide up by moving up at the same time */
+  from {
+    left: -10vmax;
+    opacity: 0;
+  }
+  to {
+    left: var(--margin);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  /* Fade out by reducing opacity to 0 */
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .grad-1 {
   color: white;
   background: linear-gradient(
     45deg,
-    color-mix(in srgb, var(--pri-col) 80%, transparent),
-    color-mix(in srgb, var(--pri-col) 80%, transparent),
-    color-mix(in srgb, var(--sec-col) 100%, transparent),
-    color-mix(in srgb, var(--pri-col) 80%, transparent)
+    rgba(var(--pri-col), 0.8),
+    rgba(var(--pri-col), 0.8),
+    rgba(var(--sec-col), 1),
+    rgba(var(--pri-col), 0.8)
   );
   background-size: 600% 600%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
 }
 
 .grad-2 {
   color: white;
   background: linear-gradient(
     -45deg,
-    color-mix(in srgb, var(--pri-col) 80%, transparent),
-    color-mix(in srgb, var(--pri-col) 80%, transparent),
-    color-mix(in srgb, var(--sec-col) 100%, transparent),
-    color-mix(in srgb, var(--pri-col) 80%, transparent)
+    rgba(var(--pri-col), 0.8),
+    rgba(var(--pri-col), 0.8),
+    rgba(var(--sec-col), 1),
+    rgba(var(--pri-col), 0.8)
   );
   background-size: 600% 600%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
 }
 
 .grad-teamA {
   color: white;
   background: linear-gradient(
     45deg,
-    color-mix(in srgb, var(--teamA-col) 60%, transparent),
-    color-mix(in srgb, var(--teamA-col) 80%, transparent),
-    color-mix(in srgb, var(--teamA-col) 100%, transparent),
-    color-mix(in srgb, var(--teamA-col) 80%, transparent)
+    rgba(var(--teamA-col), 0.6),
+    rgba(var(--teamA-col), 0.8),
+    rgba(var(--teamA-col), 1),
+    rgba(var(--teamA-col), 0.8)
   );
   background-size: 600% 600%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 10s ease infinite;
 }
 
 .grad-teamB {
   color: white;
   background: linear-gradient(
     45deg,
-    color-mix(in srgb, var(--teamB-col) 50%, transparent),
-    color-mix(in srgb, var(--teamB-col) 80%, transparent),
-    color-mix(in srgb, var(--teamB-col) 100%, transparent),
-    color-mix(in srgb, var(--teamB-col) 80%, transparent)
+    rgba(var(--teamB-col), 0.6),
+    rgba(var(--teamB-col), 0.8),
+    rgba(var(--teamB-col), 1),
+    rgba(var(--teamB-col), 0.8)
   );
   background-size: 600% 600%;
   animation: gradient 10s ease infinite;
@@ -105,10 +139,10 @@ html {
   color: #222;
   background: linear-gradient(
     45deg,
-    #eeeeeebb,
-    #eeeeeebb,
-    #ffffffbb,
-    #eeeeeebb
+    rgba(237, 237, 237, 0.6),
+    rgba(237, 237, 237, 0.6),
+    rgba(255, 255, 255, 0.8),
+    rgba(237, 237, 237, 0.6)
   );
   background-size: 600% 600%;
   animation: gradient 10s ease infinite;
@@ -162,9 +196,7 @@ html {
 .time {
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
-  /* font-family: proxima-nova, sans-serif; */
   font-weight: 400;
-  /* font-style: normal; */
   font-size: 16vh;
   padding: 0.2vh 5vw;
   color: white;
