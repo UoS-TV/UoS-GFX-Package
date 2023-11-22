@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Dynamic Lower Third</title>
+    <title>Lower Third (Dynamic)</title>
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
     <script src="js/webcg-framework.umd.js"></script>
+    <script type="text/javascript" src="js/lower-third.js"></script>
     <style type="text/css">
       .overlay {
         /* Initially hide the overlay */
@@ -40,69 +41,7 @@
         animation-fill-mode: both;
         animation-timing-function: ease-in;
       }
-
-      @keyframes slideIn {
-        /* Fade in by increasing opacity to 1 and slide up by moving up at the same time */
-        from {
-          left: -10vmax;
-          opacity: 0;
-        }
-        to {
-          left: var(--margin);
-          opacity: 1;
-        }
-      }
-
-      @keyframes fadeOut {
-        /* Fade out by reducing opacity to 0 */
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
-        }
-      }
     </style>
-    <script type="text/javascript">
-      // Set initial data for webcg-devtools
-      window.debugData = {
-        f0: "Lower third with a subtitle",
-        f1: "and CSS animations",
-      };
-
-      webcg.on("data", function (data) {
-        document.querySelector(".l3rd-1").innerHTML = data.f0
-          ? data.f0.text || data.f0
-          : "";
-        document.querySelector(".l3rd-2").innerHTML = data.f1
-          ? data.f1.text || data.f1
-          : "";
-      });
-
-      webcg.on("play", function () {
-        const overlay = document.querySelector(".overlay");
-        // Swap intro and outro classes
-        overlay.classList.add("intro");
-        overlay.classList.remove("outro");
-        // Return promise that is resolved when the animation is over. WebCG will wait for this promise.
-        return new Promise((resolve) => {
-          // Add the animationend event listener once
-          overlay.addEventListener("animationend", resolve, { once: true });
-        });
-      });
-
-      webcg.on("stop", function () {
-        const overlay = document.querySelector(".overlay");
-        // Swap intro and outro classes
-        overlay.classList.remove("intro");
-        overlay.classList.add("outro");
-        // Return promise that is resolved when the animation is over. WebCG will wait for this promise.
-        return new Promise((resolve) => {
-          // Add the animationend event listener once
-          overlay.addEventListener("animationend", resolve, { once: true });
-        });
-      });
-    </script>
   </head>
   <body>
     <div class="overlay">
