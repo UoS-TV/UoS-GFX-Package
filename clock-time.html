@@ -9,21 +9,20 @@
     <script type="text/javascript" src="js/clock.js"></script>
     <style>
       .overlay {
-        /* Initially hide the overlay */
         opacity: 0;
-        transform: translate(-50%);
+        width: min-content;
         position: absolute;
         right: var(--margin);
         bottom: var(--margin);
         transition: opacity 0.5s;
-        width: 10vw;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div class="overlay">
-      <div class="line time-sm grad-1">LIVE</div>
-      <div class="line grad-light time-sm clock"></div>
+      <div class="line line-upper grad-1">LIVE</div>
+      <div class="line line-lower grad-light clock"></div>
     </div>
   </body>
 </html>
