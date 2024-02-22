@@ -1,6 +1,8 @@
 :root {
   --margin: 6vw;
 
+  --borderRadius: 20px;
+
   /* --battersea-blue: #25384A;
   --stag-yellow: #f1b53d;
   --purple: #901a9d;
@@ -83,6 +85,23 @@ html {
     opacity: 0;
   }
 }
+
+.intro {
+  /* Define how the slideIn keyframes are applied */
+  animation-duration: 0.3s;
+  animation-name: slideIn;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.outro {
+  /* Define how the slideOut keyframes are applied */
+  animation-duration: 0.3s;
+  animation-name: fadeOut;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+}
+
 .grad-1 {
   color: white;
   background: linear-gradient(
@@ -156,41 +175,25 @@ html {
   padding: 1vh 2vh;
 }
 
-.l3rd-1 {
-  width: min-content;
-  font-weight: 700;
-  font-size: 4vh;
-  border-radius: 20px 20px 20px 0px;
-}
-
-.l3rd-2 {
-  width: min-content;
-  font-weight: 400;
-  font-size: 3vh;
-  border-radius: 0px 20px 20px 20px;
+.line:empty {
+  /* Hide empty line */
+  display: none;
 }
 
 .line-upper {
-  text-align: center;
-  color: white;
+  /* text-align: center; */
+  width: auto;
   font-weight: 800;
   font-size: 4vh;
-  border-radius: 1vw 1vw 0 0;
+  border-radius: var(--borderRadius) var(--borderRadius) 0 0;
 }
 
 .line-lower {
-  text-align: center;
-  color: white;
+  /* text-align: center; */
+  width: auto;
   font-weight: 400;
   font-size: 3vh;
-  border-radius: 0 0 1vw 1vw;
-}
-
-.time-sm {
-  width: 100%;
-  text-align: center;
-  font-weight: 400;
-  font-size: 3vh;
+  border-radius: 0 0 var(--borderRadius) var(--borderRadius);
 }
 
 .time {
