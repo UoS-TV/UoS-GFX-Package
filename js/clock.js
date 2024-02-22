@@ -19,12 +19,10 @@ function updateTime() {
 }
 
 webcg.on("play", function () {
-  const overlay = document.querySelector(".overlay");
-  overlay.style.opacity = 1;
+  document.querySelector(".overlay").style.opacity = 1;
   updateTime();
   setInterval(updateTime, 1000);
 });
 webcg.on("stop", function () {
-  const overlay = document.querySelector(".overlay");
-  overlay.style.opacity = 0;
+  document.querySelector(".overlay").style.opacity = 0;
 });
