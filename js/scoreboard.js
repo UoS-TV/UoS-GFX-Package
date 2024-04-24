@@ -10,39 +10,53 @@ window.debugData = {
   f7: "0",
 };
 
+// Listen for incoming data events from webcg
 webcg.on("data", function (data) {
   // Update debugData with the received data
   Object.assign(window.debugData, data);
 
-  // Dynamically create HTML for each person
+  // Get the overlay container
   const overlay = document.querySelector(".overlay");
-  overlay.innerHTML = ""; // Clear existing content
+  // Clear existing content to prepare for new data
+  overlay.innerHTML = "";
 
-  const numberOfPersons =
-    Object.keys(data).filter(
-      (key) => key.startsWith("f") && !isNaN(key.substring(1))
-    ).length / 2;
+  // Determine the number of persons based on the received data
+  const numberOfPersons = Object.keys(data).filter(
+    (key) => key.startsWith("f") && !isNaN(key.substring(1))
+  ).length / 2;
 
-  const totalWidth = 80; // Use 80% of the viewport to place the divs
+  // Define the total width to distribute the divs (as a percentage of the viewport)
+  const totalWidth = 80; // Use 80% of the viewport width
+  // Calculate base step to evenly space the divs
   const baseStep = totalWidth / (numberOfPersons + 1);
-  const offset = (100 - totalWidth) / 2; // Centering offset for the whole group
+  // Calculate the offset to center the group of divs within the viewport
+  const offset = (100 - totalWidth) / 2; // Starting offset for centering
 
+  // Loop through the number of persons and create a div for each person
   for (let index = 0; index < numberOfPersons; index++) {
     const personDiv = document.createElement("div");
+    // Set the div to be positioned absolutely
     personDiv.style.position = "absolute";
+    // Position the div at the bottom with some margin
     personDiv.style.bottom = "var(--margin)";
-    personDiv.style.width = "15vw";
+    // Set a fixed width for the person div
+    personDiv.style.width = "15vw"; // 15% of the viewport width
+    // Center the div horizontally
     personDiv.style.transform = "translate(-50%, 0)";
+    // Add a unique class for identification
     personDiv.classList.add(`person${index + 1}`);
 
-    // Calculate left position with offset to center them
+    // Calculate the left position with the offset for centering
     const leftPercentage = offset + (index + 1) * baseStep;
-    personDiv.style.left = `${leftPercentage}vw`;
+    personDiv.style.left = `${leftPercentage}vw`; // Set the calculated left position
 
+    // Create a div for the name and add corresponding classes
     const nameDiv = document.createElement("div");
-    nameDiv.classList.add(`line`, "line-upper", `f${2 * index}`, `grad-1`);
+    nameDiv.classList.add(`line`, "line-upper", `f${2 * index}`, "grad-1");
+    // Set the name based on the received data
     nameDiv.innerHTML = data[`f${2 * index}`].text || data[`f${2 * index}`];
 
+    // Create a div for the score and add classes
     const scoreDiv = document.createElement("div");
     scoreDiv.classList.add(
       `line`,
@@ -50,22 +64,27 @@ webcg.on("data", function (data) {
       `f${2 * index + 1}`,
       `grad-light`
     );
-    scoreDiv.style.fontSize = "8vh";
+    // Set the font size for the score
+    scoreDiv.style.fontSize = "8vh"; // 8% of viewport height
 
-    scoreDiv.innerHTML =
-      data[`f${2 * index + 1}`].text || data[`f${2 * index + 1}`];
+    // Set the score text based on the received data
+    scoreDiv.innerHTML = data[`f${2 * index + 1}`].text || data[`f${2 * index + 1}`];
 
+    // Append the name and score divs to the person div
     personDiv.appendChild(nameDiv);
     personDiv.appendChild(scoreDiv);
 
+    // Append the person div to the overlay container
     overlay.appendChild(personDiv);
   }
 });
 
+// Handle "play" event by making the overlay visible
 webcg.on("play", function () {
-  document.querySelector(".overlay").style.opacity = 1;
+  document.querySelector(".overlay").style.opacity = 1; // Set opacity to 1 to make it visible
 });
 
+// Handle "stop" event by making the overlay invisible
 webcg.on("stop", function () {
-  document.querySelector(".overlay").style.opacity = 0;
+  document.querySelector(".overlay").style.opacity = 0; // Set opacity to 0 to hide it
 });
