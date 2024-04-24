@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Countdown Clock</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
+    <script src="js/webcg-framework.umd.js"></script>
+    <script type="text/javascript" src="js/seconds-countdown.js"></script>
+    <style>
+      .overlay {
+        /* Initially hide the overlay */
+        width: auto;
+        opacity: 0;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+        transition: opacity 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay">
+      <div
+        class="line f0 countdown"
+        style="width: 100%; font-size: 10vh; text-align: center; color: white;"
+      ></div>
+    </div>
+  </body>
+</html>
