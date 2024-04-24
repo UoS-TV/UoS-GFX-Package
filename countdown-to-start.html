@@ -6,31 +6,24 @@
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
     <script src="js/webcg-framework.umd.js"></script>
-    <script type="text/javascript" src="js/countdown.js"></script>
+    <script type="text/javascript" src="js/countdown-to.js"></script>
     <style>
       .overlay {
-        /* Initially hide the overlay */
-        width: 10vw;
         opacity: 0;
-        transform: translate(-50%);
+        width: min-content;
         position: absolute;
-        right: var(--margin);
-        bottom: var(--margin);
-
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         transition: opacity 0.5s;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div class="overlay">
-      <div
-        class="line f0 l3rd-1 grad-1"
-        style="width: 100%; text-align: center"
-      ></div>
-      <div
-        class="line f1 l3rd-2 grad-light countdown"
-        style="width: 100%; text-align: center"
-      ></div>
+      <div class="line f0" style="width: auto"></div>
+      <div class="line f1 countdown" style="width: auto"></div>
     </div>
   </body>
 </html>

@@ -20,33 +20,12 @@
         /* Set a max-width to prevent going over the right margin at 100% - 2 * margin, 1728px at 1080p */
         max-width: calc(100vw - 2 * var(--margin));
       }
-
-      .line:empty {
-        /* Hide empty line */
-        display: none;
-      }
-
-      .intro {
-        /* Define how the slideIn keyframes are applied */
-        animation-duration: 0.3s;
-        animation-name: slideIn;
-        animation-fill-mode: both;
-        animation-timing-function: ease-in-out;
-      }
-
-      .outro {
-        /* Define how the slideOut keyframes are applied */
-        animation-duration: 0.3s;
-        animation-name: fadeOut;
-        animation-fill-mode: both;
-        animation-timing-function: ease-in;
-      }
     </style>
   </head>
   <body>
     <div class="overlay">
-      <div class="line l3rd-1 grad-1">Lower third with a subtitle</div>
-      <div class="line l3rd-2 grad-light">and CSS animations</div>
+      <div class="line line-upper f0 grad-1"></div>
+      <div class="line line-lower f1 grad-light"></div>
     </div>
   </body>
 </html>

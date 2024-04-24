@@ -2,46 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Lower Third (Fixed)</title>
+    <title>Lower Third (Dynamic)</title>
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="https://use.typekit.net/qro8nwd.css" />
     <script src="js/webcg-framework.umd.js"></script>
     <script type="text/javascript" src="js/lower-third.js"></script>
     <style type="text/css">
       .overlay {
+        /* Initially hide the overlay */
         opacity: 0;
+
+        /* Position overlay with equal margin to the left and bottom */
         position: absolute;
         left: var(--margin);
         bottom: var(--margin);
-        max-width: calc(100vw - (2 * var(--margin)) - 10vw);
-        --nono: calc(80vw - (2 * var(--margin)));
-      }
 
-      .line:empty {
-        display: none;
-      }
-
-      .intro {
-        animation-duration: 0.3s;
-        animation-name: slideIn;
-        animation-fill-mode: both;
-        animation-timing-function: ease-in-out;
-      }
-
-      .outro {
-        animation-duration: 0.3s;
-        animation-name: fadeOut;
-        animation-fill-mode: both;
-        animation-timing-function: ease-in;
+        /* Set a max-width to prevent going over the right margin at 100% - 2 * margin, 1728px at 1080p */
+        max-width: calc(100vw - 2 * var(--margin));
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <div class="overlay">
-      <div class="line l3rd-1 grad-1" style="width: var(--nono)">
-        Lower third with a subtitle
-      </div>
-      <div class="line l3rd-2 grad-light">and CSS animations</div>
+      <div class="line line-upper f0 grad-1"></div>
+      <div class="line line-lower f1 grad-light"></div>
     </div>
   </body>
 </html>
